@@ -1,0 +1,119 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model departemen {
+  id         Int     @id @default(autoincrement())
+  email      String  @unique
+  nama       String? @db.VarChar(255)
+  fakultas   String
+  visi       String
+  misi       String
+  fotoProfil Bytes?
+}
+
+model dosenWali {
+  nip                 String  @id
+  nama                String? @db.VarChar(255)
+  email               String  @unique
+  programStudi        String
+  jenisKelamin        String
+  pendidikanTertinggi String
+  statusIkatanKerja   String
+  statusAktivitas     String
+  nomorHandphone      String? @db.VarChar(20)
+  alamat              String
+  kabupatenKota       String
+  provinsi            String
+  fotoProfil          Bytes?
+}
+
+model irs {
+  id        Int     @id @default(autoincrement())
+  statusAcc String? @db.VarChar(255)
+  matkul    String
+  kelas     String? @db.Char(1)
+}
+
+model khs {
+  id          Int     @id @default(autoincrement())
+  statusAcc   String? @db.VarChar(255)
+  matkul      String
+  nilaiMatkul String? @db.Char(1)
+}
+
+model mahasiswa {
+  nim           String  @id
+  nama          String? @db.VarChar(255)
+  email         String  @unique
+  jalurMasuk    String
+  angkatan      String
+  semester      Int
+  nomorTelepon  String? @db.VarChar(20)
+  alamat        String
+  kabupatenKota String
+  provinsi      String
+  fotoProfil    Bytes?
+  status        Status  @default(Aktif)
+}
+
+model operator {
+  nip                 String  @id
+  nama                String? @db.VarChar(255)
+  email               String  @unique
+  programStudi        String
+  jenisKelamin        String
+  pendidikanTertinggi String
+  statusIkatanKerja   String
+  statusAktivitas     String
+  nomorHandphone      String? @db.VarChar(20)
+  alamat              String
+  kabupatenKota       String
+  provinsi            String
+  fotoProfil          Bytes?
+}
+
+model pkl {
+  id          Int     @id @default(autoincrement())
+  status      String? @db.VarChar(255)
+  beritaAcara Bytes?
+  nilai       String? @db.Char(1)
+}
+
+model skripsi {
+  id          Int     @id @default(autoincrement())
+  status      String? @db.VarChar(255)
+  beritaAcara Bytes?
+  nilai       String? @db.Char(1)
+}
+
+model user {
+  id        String   @id
+  email     String   @unique
+  createdAt DateTime @default(now())
+  password  String   @default("admin")
+  role      Role
+  username  String?  @db.VarChar(255)
+}
+
+enum Role {
+  OPERATOR
+  MAHASISWA
+  DEPARTEMEN
+  DOSENWALI
+}
+
+enum Status {
+  Aktif
+  Cuti
+  Mangkir
+  DropOut
+  UndurDiri
+  Lulus
+  MeninggalDunia
+}
