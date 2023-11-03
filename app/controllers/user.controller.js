@@ -107,7 +107,7 @@ exports.listUser = (req, res) => {
   User.find(
     {},
     {
-      password: 0,
+      password: 1,
     }
   )
     .populate("roles", "name")

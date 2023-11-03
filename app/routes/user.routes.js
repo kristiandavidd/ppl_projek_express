@@ -16,14 +16,14 @@ module.exports = function (app) {
   app.get("/mahasiswa", [authJwt.verifyToken], controller.mahasiswaBoard);
 
   app.get(
-    "/dosen",
+    "/doswal",
     [authJwt.verifyToken, authJwt.isDosen],
     controller.dosenBoard
   );
 
   app.get(
     "/admin",
-    [authJwt.verifyToken, authJwt.isAdmin],
+    // [authJwt.verifyToken, authJwt.isAdmin],
     controller.adminBoard
   );
 
@@ -38,8 +38,8 @@ module.exports = function (app) {
     [
       verifyGenerate.checkDuplicateUsernameOrEmail,
       verifyGenerate.checkRolesExisted,
-      authJwt.verifyToken,
-      authJwt.isAdmin,
+      // authJwt.verifyToken,
+      // authJwt.isAdmin,
     ],
     controller.signup
   );
@@ -89,15 +89,15 @@ module.exports = function (app) {
     [
       verifyGenerate.checkDuplicateUsernameOrEmail,
       verifyGenerate.checkRolesExisted,
-      authJwt.verifyToken,
-      authJwt.isAdmin,
+      // authJwt.verifyToken,
+      // authJwt.isAdmin,
     ],
     controller.signup
   );
 
   app.get(
     "/list-user",
-    [authJwt.verifyToken, authJwt.isAdmin],
+    // [authJwt.verifyToken, authJwt.isAdmin],
     controller.listUser
   );
 

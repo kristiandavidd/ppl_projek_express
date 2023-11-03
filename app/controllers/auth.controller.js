@@ -1,4 +1,4 @@
-const SECRET_JWT = process.env.SECRET;
+const SECRET_JWT = process.env.SECRET_JWT;
 const db = require("../models");
 const User = db.user;
 const Mahasiswa = db.mahasiswa;

@@ -6,10 +6,9 @@ const db = require("./app/models");
 const multer = require("multer");
 const Role = db.role;
 const Status = db.status;
-
 //get mongourl from .env
 const MONGO_URL = process.env.MONGO_URL;
-const SECRET_JWT = process.env.SECRET_JWT;
+const SECRET = process.env.SECRET_JWT;
 
 const app = express();
 const session = require("express-session");
@@ -62,12 +61,12 @@ app.use(
 );
 
 var corsOptions = {
-    origin: "http://localhost:4000",
+    origin: "http://localhost:3000",
 };
 
 app.use(
     session({
-        secret: SECRET_JWT,
+        secret: SECRET,
         resave: false,
         saveUninitialized: true,
     })
@@ -116,7 +115,7 @@ require("./app/routes/user.routes")(app);
 // require("./app/routes/provinsi.routes")(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });

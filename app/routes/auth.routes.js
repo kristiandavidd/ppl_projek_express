@@ -9,7 +9,7 @@ module.exports = function (app) {
     next();
   });
 
-  app.post("/signin", controller.signin);
-  app.post("/signout", controller.signout);
+  app.post("/login", controller.signin);
+  app.post("/logout", controller.signout);
 };
   
