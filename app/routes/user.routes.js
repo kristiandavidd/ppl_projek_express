@@ -46,7 +46,7 @@ module.exports = function (app) {
 
   app.get(
     "/list-user",
-    [authJwt.verifyToken, authJwt.isAdmin],
+    // [authJwt.verifyToken, authJwt.isAdmin],
     controller.listUser
   );
 
@@ -61,8 +61,8 @@ module.exports = function (app) {
     [
       verifyGenerate.checkDuplicateUsernameOrEmail,
       verifyGenerate.checkRolesExisted,
-      authJwt.verifyToken,
-      authJwt.isAdmin,
+      // authJwt.verifyToken,
+      // authJwt.isAdmin,
     ],
     controller.signUpDosen
   );

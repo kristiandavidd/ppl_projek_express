@@ -12,7 +12,7 @@ module.exports = function (app) {
 
   app.get(
     "/profile", 
-    [authJwt.verifyToken, authJwt.isMahasiswa, authJwt.getMahasiswaId],
+    //[authJwt.verifyToken, authJwt.isMahasiswa, authJwt.getMahasiswaId],
     controller.getProfil
   );
 

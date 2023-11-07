@@ -11,7 +11,7 @@ const IRS = db.irs;
 
 const fs = require("fs");
 var bcrypt = require("bcryptjs");
-const { checkRolesExisted } = require("../middlewares/verifyGenerate");
+const { checkRolesExisted } = require("../middlewares/VerifyGenerate");
 const pkl = require("../models/pkl.model");
 
 exports.allAccess = (req, res) => {

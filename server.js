@@ -89,11 +89,11 @@ db.mongoose
         useUnifiedTopology: true,
     })
     .then(() => {
-        console.log("Successfully connect to MongoDB.");
+        console.log("Inpo bang dah konek ke database");
         initial();
     })
     .catch((err) => {
-        console.error("Connection error", err);
+        console.error("error bang", err);
         process.exit();
     });
 
