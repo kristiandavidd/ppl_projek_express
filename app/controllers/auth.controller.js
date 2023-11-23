@@ -6,7 +6,7 @@ const Mahasiswa = db.mahasiswa;
 
 var bcrypt = require("bcryptjs");
 var jose = require("jose");
-const Dosen = require("../models/dosenwali.model");
+const Dosen = require("../models/dosen.model");
 
 exports.signin = (req, res) => {
   var email = req.body.email;

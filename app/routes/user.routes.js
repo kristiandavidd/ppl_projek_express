@@ -1,6 +1,6 @@
-const { authJwt } = require("../middlewares/index.js");
+const { authJwt } = require("../middlewares");
 const controller = require("../controllers/user.controller.js");
-const { verifyGenerate } = require("../middlewares/index.js");
+const { verifyGenerate } = require("../middlewares");
 
 module.exports = function (app) {
   app.use(function (req, res, next) {
@@ -16,14 +16,14 @@ module.exports = function (app) {
   app.get("/mahasiswa", [authJwt.verifyToken], controller.mahasiswaBoard);
 
   app.get(
-    "/doswal",
+    "/dosen",
     [authJwt.verifyToken, authJwt.isDosen],
     controller.dosenBoard
   );
 
   app.get(
     "/admin",
-    // [authJwt.verifyToken, authJwt.isAdmin],
+    [authJwt.verifyToken, authJwt.isAdmin],
     controller.adminBoard
   );
 
@@ -38,15 +38,15 @@ module.exports = function (app) {
     [
       verifyGenerate.checkDuplicateUsernameOrEmail,
       verifyGenerate.checkRolesExisted,
-      // authJwt.verifyToken,
-      // authJwt.isAdmin,
+      authJwt.verifyToken,
+      authJwt.isAdmin,
     ],
     controller.signup
   );
 
   app.get(
     "/list-user",
-    // [authJwt.verifyToken, authJwt.isAdmin],
+    [authJwt.verifyToken, authJwt.isAdmin],
     controller.listUser
   );
 
@@ -61,8 +61,8 @@ module.exports = function (app) {
     [
       verifyGenerate.checkDuplicateUsernameOrEmail,
       verifyGenerate.checkRolesExisted,
-      // authJwt.verifyToken,
-      // authJwt.isAdmin,
+      authJwt.verifyToken,
+      authJwt.isAdmin,
     ],
     controller.signUpDosen
   );
@@ -73,7 +73,7 @@ module.exports = function (app) {
     controller.listDosen
   );
   app.post(
-    "/group-generate",
+    "/batch-generate",
     [authJwt.verifyToken, authJwt.isMaster],
     controller.createBatchUser
   );
@@ -89,15 +89,15 @@ module.exports = function (app) {
     [
       verifyGenerate.checkDuplicateUsernameOrEmail,
       verifyGenerate.checkRolesExisted,
-      // authJwt.verifyToken,
-      // authJwt.isAdmin,
+      authJwt.verifyToken,
+      authJwt.isAdmin,
     ],
     controller.signup
   );
 
   app.get(
     "/list-user",
-    // [authJwt.verifyToken, authJwt.isAdmin],
+    [authJwt.verifyToken, authJwt.isAdmin],
     controller.listUser
   );
 

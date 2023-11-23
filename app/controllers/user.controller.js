@@ -5,7 +5,7 @@ const Role = db.role;
 const Mahasiswa = db.mahasiswa;
 const Skripsi = db.skripsi;
 const PKL = db.pkl;
-const Dosen = db.dosenwali;
+const Dosen = db.dosen;
 const KHS = db.khs;
 const IRS = db.irs;
 

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const DosenWali = mongoose.model(
-    "DosenWali",
+const Dosen = mongoose.model(
+    "Dosen",
     new mongoose.Schema({
         nip: {
             type: String,
@@ -38,4 +38,4 @@ const DosenWali = mongoose.model(
     })
 );
 
-module.exports = DosenWali;
+module.exports = Dosen;
